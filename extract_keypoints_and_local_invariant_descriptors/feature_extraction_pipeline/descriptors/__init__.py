@@ -1,1 +1,0 @@
-from .detectanddescribe import DetectAndDescribe
