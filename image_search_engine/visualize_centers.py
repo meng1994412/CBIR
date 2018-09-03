@@ -1,6 +1,6 @@
 # import packages
 from __future__ import print_function
-from pyimagesearch import ResultsMontage
+from image_search_pipeline import ResultsMontage
 from sklearn.metrics import pairwise
 import numpy as np
 import progressbar

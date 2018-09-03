@@ -1,7 +1,7 @@
 # import packages
 from __future__ import print_function
-from feature_extraction_pipeline.descriptors import DetectAndDescribe
-from feature_extraction_pipeline.indexer import FeatureIndexer
+from image_feature_pipeline.descriptors import DetectAndDescribe
+from image_feature_pipeline.indexer import FeatureIndexer
 from imutils.feature import FeatureDetector_create, DescriptorExtractor_create
 from imutils import paths
 import argparse

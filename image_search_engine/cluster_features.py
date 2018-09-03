@@ -1,6 +1,6 @@
 # import packages
 from __future__ import print_function
-from pyimagesearch.information_retrieval import Vocabulary
+from image_search_pipeline.information_retrieval import Vocabulary
 import argparse
 import pickle
 
