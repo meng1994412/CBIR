@@ -15,12 +15,12 @@
 
 ## Algorithms & Methods Involved
 * Keypoints and descriptors
-⋅⋅* Fast Hessian keypoint detector algorithms
-⋅⋅* Local scale-invariant feature descriptors (RootSIFT)
+1. Fast Hessian keypoint detector algorithms
+2. Local scale-invariant feature descriptors (RootSIFT)
 * Feature storage and indexing
-⋅⋅* Structure HDF5 dataset
+1. Structure HDF5 dataset
 * Clustering features
-⋅⋅* K-means algorithms
+1. K-means algorithms
 
 ## Results
 After storing the keypoint detectors and local invariant descriptors of each image in HDF5. We will have a HDF5 file shown below.
