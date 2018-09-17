@@ -23,4 +23,17 @@
   * K-means algorithms
 
 ## Results
-After storing the keypoint detectors and local invariant descriptors of each image in HDF5. We will have a HDF5 file shown below.
+Using following command will store the keypoint detectors and local invariant descriptors of each image in HDF5. We will have a HDF5 file shown below.
+```
+python index_features.py --dataset ukbench --features-db output/features.hdf5
+```
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf5_database.png" width="400">
+
+The following picture shows the interior structure inside HDF5 file:
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf_database_layout.png" width="500">
+
+The `image_ids` dataset has shape (X,) where X is total number of examples in dataset (In this case, X = 1000). And `image_ids` is corresponding to the filename.
+
+The `index` dataset has shape (X, 2) and stores two integers, indicating indexes into `features` dataset for image i.
+
+The `features` dataset has shape (Y, 130), where Y is the total number of feature vectors extracted from X images in the dataset. First two columns are the (x, y)-coordinates of the keypoint associated with the feature vector. The other 128 columns are from RootSIFT feature vectors.
