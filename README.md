@@ -62,18 +62,14 @@ Here are a few samples (grayscale) of visualizing the features.
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample1.jpg" width="300">
 Figure 1: Book-title features.
 
-
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample2.jpg" width="300">
 Figure 2: Leaves-of-tree features.
-
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample3.jpg" width="300">
 Figure 3: Detailed grass features.
 
-
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample4.jpg" width="300">
 Figure 4: Car-light features.
-
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample5.jpg" width="300">
 Figure 5: Store-logo features.
