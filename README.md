@@ -27,10 +27,12 @@ Using following command will store the keypoint detectors and local invariant de
 ```
 python index_features.py --dataset ukbench --features-db output/features.hdf5
 ```
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf5_database.png" width="100">
+
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf5_database.png" width="200">
 
 The following picture shows the interior structure inside HDF5 file:
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf_database_layout.png" width="200">
+
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf_database_layout.png" width="500">
 
 The `image_ids` dataset has shape (X,) where X is total number of examples in dataset (In this case, X = 1000). And `image_ids` is corresponding to the filename.
 
@@ -42,4 +44,5 @@ Using following command will cluster the features inside HDF5 file to generate a
 ```
 python cluster_features.py --features-db output/features.hdf5 --codebook output/vocab.cpickle --clusters 1536 --percentage 0.25
 ```
+
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/clustered_features.png" width="200">
