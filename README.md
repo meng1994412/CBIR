@@ -29,7 +29,7 @@
 
 ## Results
 ### Extract keypoints and descriptors
-Using following command will store the keypoint detectors and local invariant descriptors of each image in HDF5. We will have a HDF5 file shown below.
+Using following command will store the keypoint detectors and local invariant descriptors of each image in HDF5. We will have a `features.hdf5` file shown below.
 ```
 python index_features.py --dataset ukbench --features-db output/features.hdf5
 ```
@@ -76,3 +76,9 @@ Figure 2: Detailed grass features (left),  Car-light features (right).
 Figure 3: Store-logo features (left), car-dashboard features (right).
 
 ### Vector Quantization (Forming a BOVW)
+Using following command will create a BOVW representation for each image by quantizing the associated features into histogram. Comparing to `features.hdf5` file in [previous](#extract-keypoints-and-descriptors) part, `bovw.hdf5` has much smaller size which only has 12.4 MB, as the figure shown below.  
+
+```
+python extract_bovw.py --features-db output/features.hdf5 --codebook output/vocab.cpickle --bovw-db output/bovw.hdf5 --idf output/idf.cpickle
+```
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/bovw_database.png" width="200">
