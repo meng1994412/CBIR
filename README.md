@@ -11,7 +11,7 @@
 * [Imutils](https://github.com/jrosebr1/imutils)
 * [Scikit-Learn](http://scikit-learn.org/stable/)
 * [HDF5](https://www.h5py.org/)
-* redis
+* [redis](https://redis.io/)
 
 ## Algorithms & Methods Involved
 * Keypoints and descriptors
@@ -22,6 +22,10 @@
 * Clustering features to generate a codebook
   * K-means algorithms
 * Visualizing codeword entries (centroids of clustered features)
+* Vector quantization
+  * BOVW extraction
+  * BOVW storage and indexing
+* Inverted indexing
 
 ## Results
 ### Extract keypoints and descriptors
@@ -53,7 +57,7 @@ python cluster_features.py --features-db output/features.hdf5 --codebook output/
 ## Visualize features
 Using following command will create a visualization on each codeword inside codebooks (each centroid of clustered features).
 ```
-python visualize_centers.py --dataset ~/Desktop/ukbench_sample --features-db output/features.hdf5 --codebook output/vocab.cpickle --output output/vw_vis
+python visualize_centers.py --dataset ukbench --features-db output/features.hdf5 --codebook output/vocab.cpickle --output output/vw_vis
 ```
 This process takes about 60 - 90 mins to finish depend on the computers.
 
@@ -61,7 +65,6 @@ Here are a few samples (grayscale) of visualizing the features.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample1.jpg" width="300">
 Figure 1: Book-title features.
-
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample2.jpg" width="300">
 Figure 2: Leaves-of-tree features.
 

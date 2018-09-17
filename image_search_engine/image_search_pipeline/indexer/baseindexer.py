@@ -40,7 +40,7 @@ class BaseIndexer(object):
         # if this is a sparse matrix, then convert the sparse matrix to a
         # dense one so it can be written to file
         if sparse:
-            buf = buf.toarry()
+            buf = buf.toarray()
 
         # dump the buffer to file
         self._debug("writing '{}' buffer".format(datasetName))
