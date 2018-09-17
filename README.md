@@ -68,9 +68,11 @@ Here are a few samples (grayscale) of visualizing the features.
 Figure 1: Book-title features (left), Leaves-of-tree features (right).
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample3.jpg" width="300"> <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample4.jpg" width="300">
+
 Figure 2: Detailed grass features (left),  Car-light features (right).
 
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample5.jpg" width="300">
-Figure 5: Store-logo features.
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample5.jpg" width="300"> <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/vis_sample6.jpg" width="300">
+
+Figure 3: Store-logo features (left), car-dashboard features (right).
 
 ### Vector Quantization (Forming a BOVW)
