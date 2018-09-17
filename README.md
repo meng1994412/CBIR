@@ -19,7 +19,7 @@
   * Local scale-invariant feature descriptors (RootSIFT)
 * Feature storage and indexing
   * Structure HDF5 dataset
-* Clustering features
+* Clustering features to generate a codebook
   * K-means algorithms
 
 ## Results
@@ -27,13 +27,19 @@ Using following command will store the keypoint detectors and local invariant de
 ```
 python index_features.py --dataset ukbench --features-db output/features.hdf5
 ```
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf5_database.png" width="400">
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf5_database.png" width="100">
 
 The following picture shows the interior structure inside HDF5 file:
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf_database_layout.png" width="500">
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf_database_layout.png" width="200">
 
 The `image_ids` dataset has shape (X,) where X is total number of examples in dataset (In this case, X = 1000). And `image_ids` is corresponding to the filename.
 
 The `index` dataset has shape (X, 2) and stores two integers, indicating indexes into `features` dataset for image i.
 
 The `features` dataset has shape (Y, 130), where Y is the total number of feature vectors extracted from X images in the dataset. First two columns are the (x, y)-coordinates of the keypoint associated with the feature vector. The other 128 columns are from RootSIFT feature vectors.
+
+Using following command will cluster the features inside HDF5 file to generate a codebook. The clustered features will store inside cpickle file.
+```
+python cluster_features.py --features-db output/features.hdf5 --codebook output/vocab.cpickle --clusters 1536 --percentage 0.25
+```
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/clustered_features.png" width="200">
