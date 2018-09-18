@@ -3,7 +3,7 @@ import numpy as np
 
 class RedisQueue:
 
-    def __init__(self, reidsDB):
+    def __init__(self, redisDB):
         # store the redis databse object
         self.redisDB = redisDB
 
