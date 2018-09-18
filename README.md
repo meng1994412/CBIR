@@ -14,7 +14,7 @@
 * [redis](https://redis.io/)
 
 ## Algorithms & Methods Involved
-* Keypoints and descriptors
+* Keypoints and descriptors extraction
   * Fast Hessian keypoint detector algorithms
   * Local scale-invariant feature descriptors (RootSIFT)
 * Feature storage and indexing
@@ -33,7 +33,7 @@
 ### Extract keypoints and descriptors
 Using following command will store the keypoint detectors and local invariant descriptors of each image in HDF5. We will have a `features.hdf5` file shown below.
 ```
-python index_features.py --dataset ukbench --features-db output/features.hdf5
+python index_features.py --dataset ukbench --features_db output/features.hdf5
 ```
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf5_database.png" width="200">
@@ -51,7 +51,7 @@ The `features` dataset has shape (Y, 130), where Y is the total number of featur
 ### Cluster features
 Using following command will cluster the features inside HDF5 file to generate a codebook. The clustered features will store inside pickle file.
 ```
-python cluster_features.py --features-db output/features.hdf5 --codebook output/vocab.cpickle --clusters 1536 --percentage 0.25
+python cluster_features.py --features_db output/features.hdf5 --codebook output/vocab.cpickle --clusters 1536 --percentage 0.25
 ```
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/clustered_features.png" width="200">
@@ -59,7 +59,7 @@ python cluster_features.py --features-db output/features.hdf5 --codebook output/
 ### Visualize features
 Using following command will create a visualization on each codeword inside codebooks (each centroid of clustered features).
 ```
-python visualize_centers.py --dataset ukbench --features-db output/features.hdf5 --codebook output/vocab.cpickle --output output/vw_vis
+python visualize_centers.py --dataset ukbench --features_db output/features.hdf5 --codebook output/vocab.cpickle --output output/vw_vis
 ```
 This process takes about 60 - 90 mins to finish depend on the computers.
 
@@ -81,8 +81,12 @@ Figure 3: Store-logo features (left), car-dashboard features (right).
 Using following command will create a BOVW representation for each image by quantizing the associated features into histogram. Comparing to `features.hdf5` file in [previous](#extract-keypoints-and-descriptors) part, `bovw.hdf5` has much smaller size which only has 12.4 MB, as the figure shown below.  
 
 ```
-python extract_bovw.py --features-db output/features.hdf5 --codebook output/vocab.cpickle --bovw-db output/bovw.hdf5 --idf output/idf.cpickle
+python extract_bovw.py --features_db output/features.hdf5 --codebook output/vocab.cpickle --bovw_db output/bovw.hdf5 --idf output/idf.cpickle
 ```
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/bovw_database.png" width="200">
 
 ### Inverted indexing
+Using folliwing command while making sure that redis server is on will build a corresponding inverted index.
+```
+python build_redis_index.py --bovw_db output/bovw.hdf5
+```
