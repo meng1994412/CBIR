@@ -90,3 +90,8 @@ Using folliwing command while making sure that redis server is on will build a c
 ```
 python build_redis_index.py --bovw_db output/bovw.hdf5
 ```
+Using redis not only ensure that we don’t have to perform an exhaustive linear search over all images in our dataset, it also speeds up the querying process, allowing our CBIR system to scale to millions of images rather than limit it to only a few thousand.
+
+The redis database is using only about 1.9 MB of RAM to store 1000 images by checking the memory process.
+
+### Search performance
