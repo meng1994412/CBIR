@@ -32,7 +32,7 @@
 ## Approaches
 * The figure below shows the CBIR search pipelines.
 
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/cbir_searching.jpg" width="500">
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/cbir_searching.jpg" width="600">
 
 ## Results
 ### Extract keypoints and descriptors
