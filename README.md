@@ -111,10 +111,22 @@ In the UKBench dataset, since every subject has 4 relevant images with different
 
 Here are two samples that top 4 results are all relevant to the query image.
 
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample1.png" width="300">
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample1.png" width="800">
 
 Figure 5: Query image ID: 364, search took: 0.91s.
 
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample2.png" width="300">
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample2.png" width="800">
 
 Figure 6: Query image ID: 697, search took: 1.07s.
+
+Here is a sample that top 3 results are relevant to the query image.
+
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample3.png" width="800">
+
+Here is a sample that top 2 results are relevant to the query image.
+
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample4.png" width="800">
+
+Here is a sample that only 1 results are relevant to the query image.
+
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample5.png" width="800">
