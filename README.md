@@ -123,10 +123,18 @@ Here is a sample that top 3 results are relevant to the query image.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample3.png" width="800">
 
+Figure 6: Query image ID: 819, search took: 1.67s.
+
 Here is a sample that top 2 results are relevant to the query image.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample4.png" width="800">
 
+Figure 6: Query image ID: 788, search took: 1.75s.
+
 Here is a sample that only 1 results are relevant to the query image.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample5.png" width="800">
+
+Figure 6: Query image ID: 333, search took: 0.64s.
+
+### Evaluation
