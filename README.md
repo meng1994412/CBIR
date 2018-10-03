@@ -29,6 +29,7 @@
   * Implement redis for inverted index
 * Search performing
 * System accuracy evaluation
+  * "Points-based" metric
 
 ## Approaches
 * The figure below shows the CBIR search pipelines.
@@ -92,7 +93,7 @@ python extract_bovw.py --features_db output/features.hdf5 --codebook output/voca
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/bovw_database.png" width="200">
 
 ### Inverted indexing
-Using folliwing command while making sure that redis server is on will build a corresponding inverted index.
+Using following command while making sure that redis server is on will build a corresponding inverted index.
 ```
 python build_redis_index.py --bovw_db output/bovw.hdf5
 ```
@@ -101,3 +102,19 @@ Using redis not only ensure that we don’t have to perform an exhaustive linear
 The redis database is using only about 1.9 MB of RAM to store 1000 images by checking the memory process.
 
 ### Search performance
+Using following command will start the search engine to return 20 closest images to the query image you choose.
+```
+python search.py --dataset ukbench --features_db output/features.hdf5 --bovw_db output/bovw.hdf5 --codebook output/vocab.cpickle --relevant ukbench/relevant.json --query ukbench/ukbench00364.jpg
+```
+
+In the UKBench dataset, since every subject has 4 relevant images with different viewpoints, the best performance will have top 4 images which are relevant to the query image and the worst will have none relevant to the query image. The top 20 results from search engine will be displayed.
+
+Here are two samples that top 4 results are all relevant to the query image.
+
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample1.png" width="300">
+
+Figure 5: Query image ID: 364, search took: 0.91s.
+
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample2.png" width="300">
+
+Figure 6: Query image ID: 697, search took: 1.07s.
