@@ -28,6 +28,7 @@
 * Inverted indexing
   * Implement redis for inverted index
 * Search performing
+* System accuracy evaluation
 
 ## Approaches
 * The figure below shows the CBIR search pipelines.
