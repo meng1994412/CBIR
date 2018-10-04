@@ -144,8 +144,9 @@ A point-based metric is implemented for evaluation. The system will get 1 point 
   * 2 points for two relevant images are in the top-4 results.
   * 1 point for only one relevant image in the top-4 results.
   * And 0 point for no relevant images in the top-4 results.
+
 This scoring scheme is referenced from Nistér and Stewénius in their 2006 paper, *Scalable recognition with a vocabulary tree*.
 
 The figure below shows the evaluation results. The u stands for average and o stands for standard deviation.
 
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_evaluation.png" width="800">
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_evaluation.png" width="400">
