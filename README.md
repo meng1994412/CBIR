@@ -4,6 +4,7 @@
 * Cluster the extracted features in HDF5 to form a codebook (resulting centroids of each clustered futures) and visualize each codeword (the centroid) inside the codebook.
 * Construct a bag-of-visual-words (BOVW) representation for each image by quantizing the associated feature vectors into histogram using the codebook created.
 * Accept a query image from the user, construct the BOVW representation for the query, and perform the actual search.
+* Implement term frequency-inverse document frequency and spatial verification to improve the accuracy of the system.
 
 ## Software/Package Used
 * Python 3.5
@@ -30,6 +31,8 @@
 * Search performing
 * System accuracy evaluation
   * "Points-based" metric
+* Term frequency-inverse document frequency
+* Spatial verification
 
 ## Approaches
 * The figure below shows the CBIR search pipelines.
