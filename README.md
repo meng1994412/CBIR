@@ -35,6 +35,7 @@
 * Spatial verification
 
 ## Approaches
+* The dataset is obtained from 1000 images inside [UKBench](https://archive.org/details/ukbench) dataset.
 * The figure below shows the CBIR search pipelines.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/cbir_searching.jpg" width="600">
