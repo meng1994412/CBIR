@@ -36,7 +36,7 @@ idf = None
 # if the path to the inverted document frequency array was supplied, then load the
 # idf array and update
 if args["idf"] is not None:
-    idf = pickle.load(open(args["idf"], "rb").read())
+    idf = pickle.loads(open(args["idf"], "rb").read())
     distanceMetric = distance.cosine
 
 # load the codebook vocabulary and initialize the bag-of-visual-words transformer
