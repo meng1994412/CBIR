@@ -31,8 +31,9 @@
 * Search performing
 * System accuracy evaluation
   * "Points-based" metric
-* Term frequency-inverse document frequency
+* Term frequency-inverse document frequency (tf-idf)
 * Spatial verification
+  * Random Sample Consensus (RANSAC)
 
 ## Approaches
 * The dataset is obtained from 1000 images inside [UKBench](https://archive.org/details/ukbench) dataset.
@@ -154,3 +155,6 @@ This scoring scheme is referenced from Nistér and Stewénius in their 2006 pape
 The figure below shows the evaluation results. The u stands for average and o stands for standard deviation.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_evaluation.png" width="400">
+
+### Improvement
+#### tf-idf
