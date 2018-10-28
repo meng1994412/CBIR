@@ -128,19 +128,19 @@ Here is a sample that top 3 results are relevant to the query image.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample3.png" width="800">
 
-Figure 6: Query image ID: 819, search took: 1.67s.
+Figure 7: Query image ID: 819, search took: 1.67s.
 
 Here is a sample that top 2 results are relevant to the query image.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample4.png" width="800">
 
-Figure 6: Query image ID: 788, search took: 1.75s.
+Figure 8: Query image ID: 788, search took: 1.75s.
 
 Here is a sample that only 1 results are relevant to the query image.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_sample5.png" width="800">
 
-Figure 6: Query image ID: 333, search took: 0.64s.
+Figure 9: Query image ID: 333, search took: 0.64s.
 
 ### Evaluation
 A point-based metric is implemented for evaluation. The system will get 1 point for each correct result in top-4 results. For example:
@@ -154,7 +154,16 @@ This scoring scheme is referenced from Nistér and Stewénius in their 2006 pape
 
 The figure below shows the evaluation results. The u stands for average and o stands for standard deviation.
 
-<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_evaluation.png" width="400">
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_evaluation.png" width="500">
+
+Figure 10: Evaluation results.
 
 ### Improvement
 #### tf-idf
+After implementing term frequency and inverted document frequency, the system is re-evaluated and Figure 11 shows the evaluation results.
+
+<img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/performance_evaluation_idf.png" width="500">
+
+Figure 11: Evaluation results with tf-idf.
+
+### Spatial Verification
