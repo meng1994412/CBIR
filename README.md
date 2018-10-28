@@ -166,4 +166,6 @@ After implementing term frequency and inverted document frequency, the system is
 
 Figure 11: Evaluation results with tf-idf.
 
+The system accuracy improve about 3.3%.
+
 ### Spatial Verification
