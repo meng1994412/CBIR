@@ -36,23 +36,30 @@
   * Random Sample Consensus (RANSAC)
 
 ## Approaches
-* The dataset is obtained from 1000 images inside [UKBench](https://archive.org/details/ukbench) dataset.
+* The dataset is about 1000 images from [UKBench](https://archive.org/details/ukbench) dataset.
 * The figure below shows the CBIR search pipelines.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/cbir_searching.jpg" width="600">
 
 ## Results
 ### Extract keypoints and descriptors
-Using following command will store the keypoint detectors and local invariant descriptors of each image in HDF5. We will have a `features.hdf5` file shown below.
-```
-python index_features.py --dataset ukbench --features_db output/features.hdf5
-```
+`Fast Hessian` method is used for keypoint detectors and `RootSIFT` is used for local invariant descriptors. 
+
+The `descriptors/` directory inside `image_search_engine/image_search_pipeline/` directory contains `detectanddescribe.py`, which implements to extract keypoints and local invariant descriptors from the dataset.
+
+The `index/` directory inside `image_search_engine/image_search_pipeline/` directory contains object-oriented interfaces to the HDF5 dataset to store features. In this part, `baseindexer.py` and `featureindexer.py` are used for storing features.
+
+The `index_fetures.py` is the driver script for gluing all pieces mentioned above. After running this driver script, I have the `features.hdf5` file shown below, which has about 556 MB.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf5_database.png" width="200">
 
-The following picture shows the interior structure inside HDF5 file:
+Figure 1: `features.hdf5` file, which contains all the features extracted from the whole dataset.
+
+The Figure 2 shows a sample of interior structure inside `features.hdf5` file. I use `HDF5` because of the ease of interaction with the data. We can store huge amounts of data in our `HDF5` dataset and manipulate the data using NumPy. In addition, the `HDF5` format is standardized, meaning that datasets stored in `HDF5` format are inherently portable and can be accessed by other developers using different programming languages, such as C, MATLAB, and Java.
 
 <img src="https://github.com/meng1994412/CBIR/blob/master/image_search_engine/output/hdf_database_layout.png" width="500">
+
+Figure 2: A sample of interior structure of the `features.hdf5`.
 
 The `image_ids` dataset has shape (X,) where X is total number of examples in dataset (In this case, X = 1000). And `image_ids` is corresponding to the filename.
 
@@ -168,4 +175,4 @@ Figure 11: Evaluation results with tf-idf.
 
 The system accuracy improve about 3.3%.
 
-### Spatial Verification
+#### Spatial Verification
