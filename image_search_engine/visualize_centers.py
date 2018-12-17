@@ -1,7 +1,7 @@
 # import packages
 from __future__ import print_function
 from image_search_pipeline import ResultsMontage
-from sklearn.metrics import pairwise
+from sklearn.metrics import pairwise # efficiently compute the Euclidean Distance between feature vectors in our database and our vocabulary
 import numpy as np
 import progressbar
 import argparse
@@ -27,7 +27,7 @@ featuresDB = h5py.File(args["features_db"], mode = "r")
 print("[INFO] starting distance computations...")
 
 # initialize the visualizations dictionary and initialize the progress bar
-vis = {i:[] for i in np.arange(0, len(vocab))}
+vis = {i:[] for i in np.arange(0, len(vocab))} # dictionary will be the integer index of the word, and the value will be a list tuples (i.e., the image ID and keypoint location) of the image patches most representative of the word
 widgets = ["Comparing: ", progressbar.Percentage(), " ", progressbar.Bar(), " ", progressbar.ETA()]
 pbar = progressbar.ProgressBar(maxval = featuresDB["image_ids"].shape[0], widgets = widgets).start()
 
@@ -47,6 +47,7 @@ for (i, imageID) in enumerate(featuresDB["image_ids"]):
         D = pairwise.euclidean_distances(features, Y = vocab)[0]
 
         # loop over the distances dictionary
+        # maintain a list of the top image patches that are deemed most representative of each entry in the vocabulary
         for j in np.arange(0, len(vocab)):
             # grab the set of top visualization results for the current
             # visual word and update the top results with a tuple of the

@@ -19,13 +19,13 @@ class Searcher:
         self.bovwDB = h5py.File(bovwDBPath, mode = "r")
         self.featuresDB = h5py.File(featuresDBPath, mode = "r")
 
-    def search(self, queryHist, numResults = 10, maxCandidates = 200):
+    def search(self, queryHist, numResults = 10, maxCandidates = 200): # maxCandidates: the maximum number of image indexes to grab from the inverted index that shares a significant number of visual words with the query
         # start the timer to track how long the search took
         startTime = datetime.datetime.now()
 
         # determine the candidates and sort them in ascending order so they
         # can be read from the BOVW database
-        candidateIdxs = self.buildCandidates(queryHist, maxCandidates)
+        candidateIdxs = self.buildCandidates(queryHist, maxCandidates) # the list of image indexes that shares a significant number of visual words in the query.
         candidateIdxs.sort()
 
         # grab the histograms for candidates from the BOVW database and
