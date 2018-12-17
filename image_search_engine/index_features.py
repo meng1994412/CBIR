@@ -15,7 +15,7 @@ ap.add_argument("-d", "--dataset", required = True,
 ap.add_argument("-f", "--features_db", required = True,
     help = "Path to where the features database will be stored")
 ap.add_argument("-a", "--approx_images", type = int, default = 500,
-    help = "Approximate # of images in the dataset")
+    help = "Approximate # of images in the dataset") # allow to estimate size of HDF5 dataset when FeatureIndexer is initialized
 ap.add_argument("-b", "--max_buffer_size", type = int, default = 50000,
     help = "Maximum buffer size for # of features to be stored in memory")
 args = vars(ap.parse_args())

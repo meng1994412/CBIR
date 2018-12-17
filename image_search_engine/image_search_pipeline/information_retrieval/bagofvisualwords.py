@@ -31,4 +31,3 @@ class BagOfVisualWords:
 
         # return the histogram of visual word counts
         return hist
-        

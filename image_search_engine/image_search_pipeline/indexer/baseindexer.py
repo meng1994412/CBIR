@@ -15,7 +15,7 @@ class BaseIndexer(object):
         self.dbResizeFactor = dbResizeFactor
         self.verbose = verbose
 
-        # initialize the indexs dictionary
+        # initialize the indexs dictionary, which will store the current indexes into the respective datasets
         self.idxs = {}
 
     def _writeBuffers(self):
@@ -44,6 +44,7 @@ class BaseIndexer(object):
 
         # dump the buffer to file
         self._debug("writing '{}' buffer".format(datasetName))
+        # self.idx[idxName] an integer pointing to the next open row in the dataset
         dataset[self.idxs[idxName] : end] = buf
 
     def _resizeDataset(self, dataset, dbName, baseSize = 0, finished = 0):

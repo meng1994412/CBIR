@@ -29,9 +29,11 @@ class FeatureIndexer(BaseIndexer):
         # initialize the total number of features in the buffer along with the
         # indexs dictionary
         self.totalFeatures = 0
+        # index: an integer representing the current row (i.e. the next empty row) in both the image_ids and index datasets.
+        # features: An integer representing the next empty row in the features dataset
         self.idxs = {"index": 0, "features": 0}
 
-    def add(self, imageID, kps, features):
+    def add(self, imageID, kps, features): # add an image and its associated keypoints and features to the HDF5 database
         # compute the starting and ending index for the features lookup
         start = self.idxs["features"] + self.totalFeatures
         end = start + len(features)
@@ -68,7 +70,7 @@ class FeatureIndexer(BaseIndexer):
     	if sys.version_info[0] < 3:
     		dt = h5py.special_dtype(vlen = unicode)
 
-    	# otherwise use a datatype compatible with Python 3+
+    	# otherwise use a datatype compatible with Python 3.5
     	else:
     		dt = h5py.special_dtype(vlen = str)
 
@@ -102,7 +104,7 @@ class FeatureIndexer(BaseIndexer):
 
     def finish(self):
         # if the databases have not been initialized, then the original
-        # buffers were never filled up
+        # buffers were never filled up ==> large maxBufferSize, small estNumImages
         if None in (self.imageIDDB, self.indexDB, self.featuresDB):
             self._debug("minimum init buffer not reached", msgType = "[WARN]")
             self._createDatasets()
