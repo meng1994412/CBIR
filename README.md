@@ -1,10 +1,10 @@
 # Content-Based Image Retrieval Syetem
 ## Project Objectives
-* Extract keypoint detectors and local invariant descriptors of each image in the dataset and store them in HDF5.
-* Cluster the extracted features in HDF5 to form a codebook (resulting centroids of each clustered futures) and visualize each codeword (the centroid) inside the codebook.
-* Construct a bag-of-visual-words (BOVW) representation for each image by quantizing the associated feature vectors into histogram using the codebook created.
-* Accept a query image from the user, construct the BOVW representation for the query, and perform the actual search.
-* Implement term frequency-inverse document frequency and spatial verification to improve the accuracy of the system.
+* Extracted keypoint detectors and local invariant descriptors of each image in the dataset and stored them in HDF5.
+* Clustered the extracted features in HDF5 to form a codebook (resulting centroids of each clustered futures) and visualized each codeword (the centroid) inside the codebook.
+* Constructed a bag-of-visual-words (BOVW) representation for each image by quantizing the associated feature vectors into histogram using the codebook created.
+* Accepted a query image from the user, constructed the BOVW representation for the query, and performed the actual search.
+* Implemented term frequency-inverse document frequency and spatial verification to improve the accuracy of the system.
 
 ## Software/Package Used
 * Python 3.5
@@ -75,7 +75,7 @@ The `image_ids` dataset has shape (M,) where M is total number of examples in da
 
 The `index` dataset has shape (M, 2) and stores two integers, indicating indexes into `features` dataset for image i.
 
-The `features` dataset has shape (N, 130), where N is the total number of feature vectors extracted from M images in the dataset (in this case, N = 523,505). First two columns are the (x, y)-coordinates of the keypoint associated with the feature vector. The other 128 columns are from RootSIFT feature vectors.
+The `features` dataset has shape (N, 130), where N is the total number of feature vectors extracted from M images in the dataset (in this case, N = 523,505). First two columns are the (x, y)-coordinates of the keypoint associated with the feature vector. The other 128 columns are from `RootSIFT` feature vectors.
 
 ### Cluster features
 **This is the step 2 in building the bag of visual word (BOVW).**
